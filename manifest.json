@@ -1,0 +1,48 @@
+{
+  "short_name": "Add to GiftList Button",
+  "name": "Add to GiftList Button",
+  "description": "Add to GiftList Button",
+  "version": "1.1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "web_accessible_resources": [{
+    "resources": [
+      "public/css/index.css",
+      "public/images/*.*",
+      "public/fonts/*.*"
+    ],
+    "matches": ["<all_urls>"],
+    "extension_ids": []
+  }],
+  "host_permissions": ["https://giftlist.dedicateddevelopers.us/api/*"],
+  "content_scripts": [{
+    "js": ["scripts/content.js"],
+    "css": ["public/css/index.css"],
+    "matches": ["<all_urls>"]
+  }],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "/public/images/logo_16.png",
+      "32": "/public/images/logo_32.png",
+      "48": "/public/images/logo_48.png",
+      "128": "/public/images/logo_128.png" 
+    }
+  },
+  "icons": {
+    "16": "/public/images/logo_16.png",
+    "32": "/public/images/logo_32.png",
+    "48": "/public/images/logo_48.png",
+    "128": "/public/images/logo_128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline';"
+  }
+}
